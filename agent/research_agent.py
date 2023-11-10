@@ -51,7 +51,7 @@ class ResearchAgent:
         """
 
         messages = [create_message(text, topic)]
-        await self.stream_output(f"📝 Summarizing text for query: {text}")
+        await self.stream_output(f"📝 内容を要約しています…… : {text}")
 
         return create_chat_completion(
             model=CFG.fast_llm_model,
@@ -67,7 +67,7 @@ class ResearchAgent:
         new_urls = []
         for url in url_set_input:
             if url not in self.visited_urls:
-                await self.stream_output(f"✅ Adding source url to research: {url}\n")
+                await self.stream_output(f"✅ リサーチのソースを追加しています: {url}\n")
 
                 self.visited_urls.add(url)
                 new_urls.append(url)
@@ -96,7 +96,7 @@ class ResearchAgent:
         Returns: list[str]: The search queries for the given question
         """
         result = await self.call_agent(prompts.generate_search_queries_prompt(self.question))
-        await self.stream_output(f"🧠 I will conduct my research based on the following queries: {result}...")
+        await self.stream_output(f"🧠 下記の内容について調査を行っています……: {result}...")
         return json.loads(result)
 
     async def async_search(self, query):
@@ -107,7 +107,7 @@ class ResearchAgent:
         search_results = json.loads(web_search(query))
         new_search_urls = self.get_new_urls([url.get("href") for url in search_results])
 
-        await self.stream_output(f"🌐 Browsing the following sites for relevant information: {new_search_urls}...")
+        await self.stream_output(f"🌐 関連情報を閲覧中……: {new_search_urls}...")
 
         # Create a list to hold the coroutine objects
         tasks = [async_browse(url, query, self.websocket) for url in await new_search_urls]
@@ -123,7 +123,7 @@ class ResearchAgent:
         Returns: str: The search summary for the given query
         """
 
-        await self.stream_output(f"🔎 Running research for '{query}'...")
+        await self.stream_output(f"🔎  '{query}' について調べています...")
 
         responses = await self.async_search(query)
 
@@ -157,7 +157,7 @@ class ResearchAgent:
         """
         result = self.call_agent(prompts.generate_concepts_prompt(self.question, self.research_summary))
 
-        await self.stream_output(f"I will research based on the following concepts: {result}\n")
+        await self.stream_output(f"リサーチする内容は: {result} です。 \n")
         return json.loads(result)
 
     async def write_report(self, report_type, websocket=None):
@@ -166,7 +166,7 @@ class ResearchAgent:
         Returns: str: The report for the given question
         """
         report_type_func = prompts.get_report_by_type(report_type)
-        await self.stream_output(f"✍️ Writing {report_type} for research task: {self.question}...")
+        await self.stream_output(f"✍️ {self.question}についてレポートを書いています...")
 
         answer = await self.call_agent(report_type_func(self.question, self.research_summary),
                                        stream=websocket is not None, websocket=websocket)
@@ -186,3 +186,4 @@ class ResearchAgent:
         for concept in concepts:
             answer = await self.call_agent(prompts.generate_lesson_prompt(concept), stream=True)
             await write_md_to_pdf("Lesson", self.dir_path, answer)
+
