@@ -27,7 +27,7 @@ def generate_report_prompt(question, research_summary, report_format="apa"):
            f'Using the above information, answer the following'\
            f' question or topic: "{question}" in a detailed report --'\
            " The report should focus on the answer to the question, should be well structured, informative," \
-           f' in depth, with facts and numbers if available and a minimum of 2,500 words. However, if the number of words is specified in "{question}" , please follow it. \n' \
+           f' in depth, with facts and numbers if available and a minimum of 2,500 words. And do not count the reference section as a word count. However, if the number of words is specified in "{question}" , please follow it. \n' \
            "You should strive to write the report as long as you can using all relevant and necessary information provided.\n" \
            "You must write the report with markdown syntax.  And regardless of the language of the input, the output should be in Japanese. \n "\
             "You MUST determine your own concrete and valid opinion based on the given information. Do NOT deter to general and meaningless conclusions.\n" \
@@ -64,7 +64,7 @@ def generate_resource_report_prompt(question, research_summary):
            ' Ensure that the report is well-structured, informative, in-depth, and follows Markdown syntax.' \
            ' Include relevant facts, figures, and numbers whenever available.' \
            'Regardless of the language of the input, the output should be in Japanese. ' \
-           f' The report should have a minimum length of 2,500 words. However, if the number of words is specified in "{question}" , please follow it.'
+           f' The report should have a minimum length of 2,500 words. And do not count the reference section as a word count. However, if the number of words is specified in "{question}" , please follow it.'
 
 
 def generate_outline_report_prompt(question, research_summary):
@@ -77,7 +77,7 @@ def generate_outline_report_prompt(question, research_summary):
     return f'"""{research_summary}""" Using the above information, generate an outline for a research report in Markdown syntax'\
            f' for the following question or topic: "{question}". The outline should provide a well-structured framework'\
            ' for the research report, including the main sections, subsections, and key points to be covered.' \
-           f' The research report should be detailed, informative, in-depth, and a minimum of 2,500 words. However, if the number of words is specified in "{question}" , please follow it.' \
+           f' The research report should be detailed, informative, in-depth, and a minimum of 2,500 words. And do not count the reference section as a word count. However, if the number of words is specified in "{question}" , please follow it.' \
            ' Use appropriate Markdown syntax to format the outline and ensure readability.' \
             'Regardless of the language of the input, the output should be in Japanese. ' 
 

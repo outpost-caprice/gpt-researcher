@@ -12,7 +12,7 @@ const GPTResearcher = (() => {
       document.getElementById("reportContainer").innerHTML = "";
       updateState("in_progress")
   
-      addAgentResponse({ output: "🤔 Thinking about research questions for the task..." });
+      addAgentResponse({ output: "🤔 質問からどのようなタスクを行うか考えています……" });
   
       listenToSockEvents();
     };
