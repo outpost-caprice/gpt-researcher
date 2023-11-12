@@ -50,9 +50,9 @@
             
         </h1>
         <p class="max-w-5xl mx-auto text-gray-600 mt-8" style="font-size:20px">
-            GPTリサーチャーにようこそ、迅速な洞察と包括的な調査のためのあなたのAIアシスタントです。
-            GPTリサーチャーは、正確な情報収集から調査結果の整理まで、すべてを1つのプラットフォームで行います。
-            プラットフォームで、あなたのリサーチプロセスを簡単にします。
+            Say Hello to GPT Researcher, your AI mate for rapid insights and comprehensive research. GPT Researcher
+            takes care of everything from accurate source gathering to organization of research results - all in one
+            platform designed to make your research process a breeze.
         </p>
         <a href="#form" class="btn btn-primary">Get Started</a>
     </div>
@@ -63,8 +63,8 @@
                                                 alt="Auto Agent"></div>
     <form method="POST" class="mt-3" onsubmit="GPTResearcher.startResearch(); return false;">
         <div class="form-group">
-            <label for="task-textarea" class="agent-question">何についてリサーチを行ってほしいですか？</label>
-            <textarea id="task-textarea" name="task" class="form-control" required></textarea>
+            <label for="task" class="agent-question">何についてのレポートを作りたいですか？</label>
+            <input type="text" id="task" name="task" class="form-control" required>
             <input type="radio" name="agent" id="autoAgent" value="Auto Agent" checked hidden>
         </div>
         <div class="form-group">
@@ -76,19 +76,19 @@
         </div>
         <div class="form-group">
             <label for="report_type" class="agent-question">どのタイプのレポートを作りますか？</label>
-            <select name="report_type" id="report_type" class="form-control" required>
+            <select name="report_type" class="form-control" required>
                 <option value="research_report">リサーチレポート</option>
                 <option value="resource_report">ソースレポート</option>
                 <option value="outline_report">アウトラインレポート</option>
             </select>
-            <a href="https://github.com/outpost-caprice/gpt-researcher/blob/master/READMEJP.md" class="reporttype">レポートの詳細についてはこちら</a>
         </div>
         <input type="submit" value="Research" class="btn btn-primary button-padding">
     </form>
 
     <div class="margin-div">
         <h2>Agent Output</h2>
-        <p class="mt-2 text-left" style="font-size: 0.8rem;">あなたのタスクに特化したエージェントが生成され、正確で関連性の高い調査結果を提供します。</p>
+        <p class="mt-2 text-left" style="font-size: 0.8rem;">An agent tailored specifically to your task
+                        will be generated to provide the most precise and relevant research results.</p>
         <div id="output"></div>
     </div>
     <div class="margin-div">
