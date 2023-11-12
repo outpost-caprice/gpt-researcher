@@ -29,7 +29,7 @@ def generate_report_prompt(question, research_summary, report_format="apa"):
            " The report should focus on the answer to the question, should be well structured, informative," \
            f' in depth, with facts and numbers if available and a minimum of 2,500 words. However, if the number of words is specified in "{question}" , please follow it. \n' \
            "You should strive to write the report as long as you can using all relevant and necessary information provided.\n" \
-           "You must write the report with markdown syntax.  And regardless of the language of the input, the output should be in Japanese. \n "\
+           "You must write the report with markdown syntax.  And regardless of the language of the input, the output must be in Japanese. \n "\
             "You MUST determine your own concrete and valid opinion based on the given information. Do NOT deter to general and meaningless conclusions.\n" \
            f"Write all used source urls at the end of the report, and make sure to not add duplicated sources, but only one reference for each.\n" \
            f"You must write the report in {report_format} format.\n " \
@@ -63,7 +63,7 @@ def generate_resource_report_prompt(question, research_summary):
            ' Focus on the relevance, reliability, and significance of each source.' \
            ' Ensure that the report is well-structured, informative, in-depth, and follows Markdown syntax.' \
            ' Include relevant facts, figures, and numbers whenever available.' \
-           'Regardless of the language of the input, the output should be in Japanese. ' \
+           'Regardless of the language of the input, the output must be in Japanese. ' \
            f' The report should have a minimum length of 2,500 words. However, if the number of words is specified in "{question}" , please follow it.'
 
 
@@ -79,7 +79,7 @@ def generate_outline_report_prompt(question, research_summary):
            ' for the research report, including the main sections, subsections, and key points to be covered.' \
            f' The research report should be detailed, informative, in-depth, and a minimum of 2,500 words. However, if the number of words is specified in "{question}" , please follow it.' \
            ' Use appropriate Markdown syntax to format the outline and ensure readability.' \
-            'Regardless of the language of the input, the output should be in Japanese. ' 
+            'Regardless of the language of the input, the output must be in Japanese. ' 
 
 def generate_concepts_prompt(question, research_summary):
     """ Generates the concepts prompt for the given question.

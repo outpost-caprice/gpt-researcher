@@ -63,7 +63,7 @@
     <form method="POST" class="mt-3" onsubmit="GPTResearcher.startResearch(); return false;">
         <div class="form-group">
             <label for="task" class="agent-question">何についてのレポートを作りたいですか？</label>
-            <input type="text" id="task" name="task" class="form-control" required>
+            <textarea id="task" name="task" class="form-control" required></textarea>
             <input type="radio" name="agent" id="autoAgent" value="Auto Agent" checked hidden>
         </div>
         <div class="form-group">
@@ -75,7 +75,7 @@
         </div>
         <div class="form-group">
             <label for="report_type" class="agent-question">どのタイプのレポートを作りますか？</label>
-            <select name="report_type" class="form-control" required>
+            <select id="report_type" name="report_type" class="form-control" required>
                 <option value="research_report">リサーチレポート</option>
                 <option value="resource_report">ソースレポート</option>
                 <option value="outline_report">アウトラインレポート</option>

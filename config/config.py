@@ -24,10 +24,10 @@ class Config(metaclass=Singleton):
         self.llm_provider = os.getenv("LLM_PROVIDER", "ChatOpenAI")
         self.fast_llm_model = os.getenv("FAST_LLM_MODEL", "gpt-4-1106-preview")
         self.smart_llm_model = os.getenv("SMART_LLM_MODEL", "gpt-4-1106-preview")
-        self.fast_token_limit = int(os.getenv("FAST_TOKEN_LIMIT", 4000))
-        self.smart_token_limit = int(os.getenv("SMART_TOKEN_LIMIT", 8000))
+        self.fast_token_limit = int(os.getenv("FAST_TOKEN_LIMIT", 5000))
+        self.smart_token_limit = int(os.getenv("SMART_TOKEN_LIMIT", 1000))
         self.browse_chunk_max_length = int(os.getenv("BROWSE_CHUNK_MAX_LENGTH", 20000))
-        self.summary_token_limit = int(os.getenv("SUMMARY_TOKEN_LIMIT", 3000))
+        self.summary_token_limit = int(os.getenv("SUMMARY_TOKEN_LIMIT", 8000))
 
         self.openai_api_key = os.getenv("OPENAI_API_KEY")
         self.temperature = float(os.getenv("TEMPERATURE", "0.4"))
