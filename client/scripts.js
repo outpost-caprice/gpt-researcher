@@ -37,7 +37,7 @@ const GPTResearcher = (() => {
       };
   
       socket.onopen = (event) => {
-        const task = document.querySelector('input[name="task"]').value;
+        document.querySelector('textarea[name="task"]').value;
         const report_type = document.querySelector('select[name="report_type"]').value;
         const agent = document.querySelector('input[name="agent"]:checked').value;
   
