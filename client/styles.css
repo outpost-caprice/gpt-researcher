@@ -129,10 +129,3 @@ footer {
     padding: 10px;
     border-radius: 12px;
 }
-
-/* フォームサイズ変更 */
-input[type="text"], input[type="radio"], textarea {
-    width: 100%; 
-    height: 200px;
-    padding: 10px; 
-}
